@@ -26,7 +26,6 @@ class App extends StatelessWidget {
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(),
       ),
-      // Checks if there is a valid auth token saved since the last login
       home: const Scaffold(body: HomePage()),
     );
   }
