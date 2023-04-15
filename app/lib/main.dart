@@ -1,13 +1,9 @@
 /*
   * Util/Dependency imports
  */
+import 'package:app/components/baseplate.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/app.routes.dart';
-
-/*
-  * Page/Component imports
- */
-import 'package:app/pages/home.dart';
 
 void main() {
   runApp(const App());
@@ -24,9 +20,9 @@ class App extends StatelessWidget {
       // Defines all the routes
       routes: AppRoutes.routes,
       theme: ThemeData(
-        colorScheme: const ColorScheme.dark(),
+        colorScheme: const ColorScheme.light(),
       ),
-      home: const Scaffold(body: HomePage()),
+      home: const Baseplate(),
     );
   }
 }
