@@ -28,9 +28,10 @@ class _BaseplateState extends State<Baseplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[index],
+      body: SafeArea(child: pages[index]),
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
+        height: 55,
         backgroundColor: Colors.white,
         color: Colors.deepPurple,
         index: index,

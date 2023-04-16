@@ -1,7 +1,6 @@
 /*
   * Util/Dependency imports
  */
-import 'package:app/components/baseplate.dart';
 import 'package:flutter/material.dart';
 import 'package:app/utils/app.routes.dart';
 
@@ -19,10 +18,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Defines all the routes
       routes: AppRoutes.routes,
+      initialRoute: AppRoutes.signInRoute,
       theme: ThemeData(
         colorScheme: const ColorScheme.light(),
       ),
-      home: const Baseplate(),
     );
   }
 }

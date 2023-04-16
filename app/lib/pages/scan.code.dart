@@ -32,7 +32,8 @@ class _ScanQrCodeState extends State<ScanQrCode> {
       children: <Widget>[
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(top: 30, bottom: 5),
+            padding:
+                const EdgeInsets.only(top: 10, left: 5, right: 5, bottom: 5),
             child: _buildQrView(context),
           ),
         ),
@@ -52,16 +53,17 @@ class _ScanQrCodeState extends State<ScanQrCode> {
                     Container(
                       margin: const EdgeInsets.all(8),
                       child: ElevatedButton(
-                          onPressed: () async {
-                            await controller?.toggleFlash();
-                            setState(() {});
+                        onPressed: () async {
+                          await controller?.toggleFlash();
+                          setState(() {});
+                        },
+                        child: FutureBuilder(
+                          future: controller?.getFlashStatus(),
+                          builder: (context, snapshot) {
+                            return const Icon(Icons.flash_auto_outlined);
                           },
-                          child: FutureBuilder(
-                            future: controller?.getFlashStatus(),
-                            builder: (context, snapshot) {
-                              return const Icon(Icons.flash_auto_outlined);
-                            },
-                          )),
+                        ),
+                      ),
                     ),
 
                     // Button to change the camera view
@@ -102,16 +104,28 @@ class _ScanQrCodeState extends State<ScanQrCode> {
         : 300.0;
     // To ensure the Scanner view is properly sizes after rotation
     // we need to listen for Flutter SizeChanged notification and update controller
-    return QRView(
-      key: qrKey,
-      onQRViewCreated: _onQRViewCreated,
-      overlay: QrScannerOverlayShape(
-          borderColor: Colors.green,
-          borderRadius: 10,
-          borderLength: 30,
-          borderWidth: 10,
-          cutOutSize: scanArea),
-      onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.deepPurple,
+          width: 4.0,
+          style: BorderStyle.solid,
+        ),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      child: QRView(
+        key: qrKey,
+        onQRViewCreated: _onQRViewCreated,
+        overlay: QrScannerOverlayShape(
+            borderColor: Colors.green,
+            borderRadius: 10,
+            borderLength: 30,
+            borderWidth: 10,
+            cutOutSize: scanArea),
+        onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
+      ),
     );
   }
 
