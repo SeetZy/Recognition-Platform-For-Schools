@@ -1,13 +1,17 @@
 /*
   * Util/Dependency imports
  */
+import 'package:flutter/material.dart';
+// ? https://pub.dev/packages/curved_navigation_bar
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
+/*
+  * Page/Component imports
+ */
 import 'package:app/pages/home.dart';
 import 'package:app/pages/profile.dart';
 import 'package:app/pages/scan.code.dart';
 import 'package:app/pages/settings.dart';
-import 'package:flutter/material.dart';
-// ? https://pub.dev/packages/curved_navigation_bar
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Baseplate extends StatefulWidget {
   const Baseplate({super.key});
@@ -16,8 +20,10 @@ class Baseplate extends StatefulWidget {
 }
 
 class _BaseplateState extends State<Baseplate> {
+  // Page navigation index
   int index = 0;
 
+  // Pages that the navigation bar uses
   final pages = [
     const HomePage(),
     const ScanQrCode(),
@@ -35,6 +41,7 @@ class _BaseplateState extends State<Baseplate> {
         backgroundColor: Colors.white,
         color: Colors.deepPurple,
         index: index,
+        // Navigates to a specific page based on the index
         onTap: (index) => setState(() => this.index = index),
         items: const [
           Icon(
