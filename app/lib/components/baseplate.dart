@@ -31,6 +31,26 @@ class _BaseplateState extends State<Baseplate> {
     const SettingsPage()
   ];
 
+  // Navigation bar buttons
+  final items = [
+    const Icon(
+      Icons.home,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.qr_code,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.person,
+      color: Colors.white,
+    ),
+    const Icon(
+      Icons.settings,
+      color: Colors.white,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,24 +63,7 @@ class _BaseplateState extends State<Baseplate> {
         index: index,
         // Navigates to a specific page based on the index
         onTap: (index) => setState(() => this.index = index),
-        items: const [
-          Icon(
-            Icons.home,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.qr_code,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.person,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.settings,
-            color: Colors.white,
-          ),
-        ],
+        items: items,
       ),
     );
   }
