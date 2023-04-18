@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.models import User
+from django.views.decorators.http import require_http_methods
+
 
 
 
@@ -13,6 +15,7 @@ from django.contrib.auth.models import User
 def hello_django(request):
     return HttpResponse("Hello, it's me")
 
+# @require_http_methods("GET")
 class UserRecordView(APIView):
     """
     API View to create or get a list of all the registered
