@@ -1,9 +1,9 @@
 /*
   * Util/Dependency imports
  */
+import 'package:flutter/material.dart';
 import 'package:app/utils/app.routes.dart';
 import 'package:app/utils/global.vars.dart';
-import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
