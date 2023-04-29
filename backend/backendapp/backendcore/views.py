@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_http_methods
+import supabase
 
 
 
@@ -44,3 +45,4 @@ class UserRecordView(APIView):
             },
             status=status.HTTP_400_BAD_REQUEST
         )
+    
