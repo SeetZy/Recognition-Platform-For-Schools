@@ -38,6 +38,7 @@ dependencies:
   curved_navigation_bar:
   qr_code_scanner:
   animate_gradient:
+  dio: ^5.1.1
 
 dev_dependencies:
   flutter_test:
