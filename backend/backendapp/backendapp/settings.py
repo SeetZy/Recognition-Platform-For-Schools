@@ -90,9 +90,14 @@ WSGI_APPLICATION = 'backendapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   
+    'default':{
+        'ENGINE' : 'django.db.backends.postgresql',
+            'NAME' : 'postgres',
+            'HOST' : env('SUPABASE_HOST'),
+            'PASSWORD': env('SUPABASE_PW'),
+            'PORT': env('SUPABASE_PORT'),
+            'USER': 'postgres'       # download this from database/settings and put in your main app folder
     }
 }
 
