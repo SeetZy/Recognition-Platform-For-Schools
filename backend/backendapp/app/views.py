@@ -1,9 +1,10 @@
-from .serializers import UserSerializer
+from .serializers import UserSerializer,TeacherRegistrationForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 
 class UserRecordView(APIView):
@@ -34,3 +35,14 @@ class UserRecordView(APIView):
             },
             status=status.HTTP_400_BAD_REQUEST
         )
+    
+
+def teacher_registration(request):
+    if request.method == 'POST':
+        form = TeacherRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('teacher_dashboard')  # Replace 'teacher_dashboard' with the URL name for the teacher dashboard
+    else:
+        form = TeacherRegistrationForm()
+    return render(request, 'teacher_registration.html', {'form': form})

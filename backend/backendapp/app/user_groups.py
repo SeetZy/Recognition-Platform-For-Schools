@@ -23,6 +23,5 @@ def student_dashboard(request):
 @login_required
 @user_passes_test(lambda u: u.groups.filter(name='Teachers').exists(), login_url='/')
 def teacher_dashboard(request):
-    # This view is accessible only to users in the "Teachers" group
-    # Add your logic here
+    
     pass
